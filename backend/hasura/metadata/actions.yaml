@@ -1,0 +1,20 @@
+version: 3
+actions:
+  - name: savePokemon
+    definition:
+      kind: synchronous
+      handler: http://action-handler:3001/save-pokemon
+      output_type: SavePokemonOutput
+    arguments:
+      - name: name
+        type: String!
+      - name: url
+        type: String!
+custom_types:
+  objects:
+    - name: SavePokemonOutput
+      fields:
+        - name: success
+          type: Boolean
+        - name: message
+          type: String
